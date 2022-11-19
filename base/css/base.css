@@ -1,0 +1,126 @@
+:root{
+    --theme-color: #2a6ca3; 
+}
+body{
+    height: 2000px;
+}
+/* 导航栏 */
+nav{
+    padding: 0 24px;
+    height: 60px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0px;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0px 2px 4px #00000014;
+    z-index: 100;    
+}
+#loading-line{
+    width: 100%;
+    height: 6px;
+    /* background-color: var(--theme-color); */
+}
+.search-box{
+    height: 30px;
+    float: left;
+    line-height: 30px;
+    padding: 0 6px 0 12px;
+    margin: 9px;
+    border-radius: 6px;
+    border: #e5e7e9 solid 1px;
+    background: #f2f3f4;
+    font-size: 14px;
+}
+.search-box input,.search-box button{
+    border: none;
+    outline: none;
+    background: none;
+}
+.search-box input{
+    width: 300px;
+}
+.nav-left{
+    float: left;
+}
+.nav-right{
+    float: right;
+}
+.nav-right div{
+    float: left;
+}
+.nav-link a{
+    width: 30px;
+    height: 54px;
+    margin: 0 6px;
+    color: #000;
+    font-size: 14px;
+    line-height: 48px;
+    text-decoration: none;
+}
+.user-img{
+    width: 36px;
+    height: 36px;
+    margin: 6px 12px;
+    border-radius: 24px;
+    box-shadow: 0px 0px 6px #00000077;
+    background-color: #bbbbbb77;
+    background-size: 36px 36px;
+}
+#view-body{
+    z-index: 90;
+    margin: 36px 54px;
+}
+
+
+/* 移动端 */
+@media (max-width: 500px){
+    #loading-line{
+        height: 3px;
+    }
+    nav{
+        height: 54px;
+        padding: 0;  
+    }
+    .search-box{
+        height: 24px;
+        line-height: 24px;
+        padding: 0 3px 0 6px;
+        margin: 12px 3px;
+    }
+    .search-box input{
+        width: 36px;
+        font-size: 10px;
+    }
+    .icon-false{
+        opacity: 0;
+    }
+    .search-box span{
+        font-size: 10px;
+    }
+    .nav-link a{
+        height: 54px;
+        margin: 0 3px;
+        font-size: 10px;
+    }
+    .user-img{
+        width: 30px;
+        height: 30px;
+        margin: 9px 9px;
+        border-radius: 24px;
+        box-shadow: 0px 0px 6px #00000077;
+        background-color: #bbbbbb77;
+        background-size: 30px 30px;
+    }
+    
+    .artplayer-app {
+        width: 300px;
+        height: 180px;
+        margin: 0 auto;
+    }
+    #view-body{
+        z-index: 90;
+        width: 100%;
+        margin: 18px 0;
+    }
+}
+

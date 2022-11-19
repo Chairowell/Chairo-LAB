@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base target="blank">
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3159689_noyqu1m4tht.css">
+    <link rel="stylesheet" href="./base/css/reset.css">
+    <link rel="stylesheet" href="./base/css/base.css">
+    <link rel="shortcut icon" href="./base/img/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./base/img/favicon.png">
+    <link rel="manifest" href="">
+    <title>Chairo (｡・`ω´･)" YAYOYAYO</title>
+</head>
+
+<body>
+    <nav>
+        <div id="loading-line"></div>
+        <div class="nav-left">
+            <script>
+                function indevelopment() {
+                    alert("开发中！二次元可不是这么容易进的YO！")
+                }
+            </script>
+            <div class="nav-link">
+                <a href="https://www.chairo.cc"><i></i></a>
+                <a href="https://www.chairo.cc">首页</a>
+                <a href="./index.html">实验室</a>
+                <a href="https://www.chairo.cc">导航</a>
+                <a onclick="indevelopment()">番剧</a>
+                <a onclick="indevelopment()">音乐</a>
+            </div>
+        </div>
+        <div class="search-box">
+            <form action="./php/test.php" method="get">
+                <input name="keywords" id="keywords" type="text" autocomplete="off">
+                <button type="reset"><span class="iconfont icon-false"></span></button>
+                <button type="submit" class="search"><span class="iconfont icon-search-line"></span></button>
+            </form>
+        </div>
+        <div class="nav-right">
+            <div class="nav-link">
+                <a onclick="indevelopment()">公告</a>
+                <a onclick="indevelopment()">消息</a>
+            </div>
+            <div class="user-box">
+                <a onclick="indevelopment()">
+                    <div class="user-img" style="background-image: url(./user.jpg);"></div>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- <form action="./php/sql.php" method="post">
+        <input name="username" type="text" placeholder="username" autocomplete="off">
+        <input name="email" type="text" placeholder="email" autocomplete="off">
+        <button type="reset"></button>
+        <button type="submit"></button>
+    </form> -->
+    <div id="view-body">
+        <div class="artplayer-app"></div>
+        <script src="https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js"></script>
+        <!-- <script src="./flv.min.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/artplayer-plugin-danmuku/dist/artplayer-plugin-danmuku.js"></script>
+        <style>
+            .artplayer-app {
+                width: 80vw;
+                height: 80vh;
+            }
+        </style>
+        <script>
+            // function video_url(url) {
+            //     art.url = '';
+            //     var address = "https://www.chairo.cc/lanzouyun/?url=https://chairo.lanzouy.com/" + url;
+            //     fetch(address, {
+            //             method: 'get',
+            //             mode: 'cors',
+            //         })
+            //         .then(function (data) {
+            //             return data.json();
+            //         })
+            //         .then(data => {
+            //             console.log(data);
+            //             if (data["code"] == 200 & data["downUrl"] != '') {
+            //                 art.url = data["downUrl"]; 
+            //                 art.plugins.artplayerPluginDanmuku.load(); 
+            //             } else {
+            //                 video_url(url);
+            //             }
+            //         })
+            //         .catch(err => console.log('Request Failed', err));
+            // };
+            
+            // function dm(cid){
+            //     var xml_url = "./base/xml/" + cid + ".xml";
+            //     art.plugins.artplayerPluginDanmuku.config({
+            //         danmuku: xml_url,
+            //     });
+            // };
+
+            // function xml_url(cid) {
+            //     var address = "https://comment.bilibili.com/"+cid+".xml";
+            //     fetch(address, {
+            //             method: 'get',
+            //         })
+            //         .then(function (xml) {
+            //             return xml.text();
+            //         })
+            //         .then(xml => {
+            //             console.log(xml);
+            //         })
+            //         .catch(err => console.log('Request Failed', err));
+            // }
+            // xml_url("542377687");
+
+            const art = new Artplayer({
+                container: '.artplayer-app',
+                url: 'https://lab.chairo.cc/base/video/1.mp4',
+                theme: '#fff',
+                type: 'mp4',
+                autoplay: true,
+                autoMini: true,
+                flip: true,
+                playbackRate: true,
+                aspectRatio: true,
+                hotkey: true,
+                pip: true,
+                fullscreen: true,
+                fullscreenWeb: true,
+                miniProgressBar: true,
+                setting: true,
+                loop: true,
+                icons: {
+                    loading: '<img src="./loading.gif" style="zoom:40%;">',
+                },
+                plugins: [
+                    artplayerPluginDanmuku({
+                        danmuku: '',
+                        opacity: 0.8,
+                        fontSize: 16,
+                        synchronousPlayback: true,
+                    }),
+                ],
+            });
+            
+            // video_url("iS4VU0bcompa");
+            // dm("807483593");
+
+            // var art = new Artplayer({
+            //     container: '.artplayer-app',
+            //     autoplay: true,
+            //     url: '',
+            //     customType: {
+            //         flv: function (video, url) {
+            //             if (flvjs.isSupported()) {
+            //                 const flvPlayer = flvjs.createPlayer({
+            //                     type: 'flv',
+            //                     url: url,
+            //                 });
+            //             flvPlayer.attachMediaElement(video);
+            //             flvPlayer.load();
+            //             } else {
+            //             art.notice.show = '不支持播放格式：flv';
+            //             }
+            //         },
+            //     },
+            // });
+        </script>
+        <hr>
+        <!-- <h2>视频仅做测试，搬运于b站，如有问题请联系管理员chairowell@gmail.com,以关闭视频</h2>
+        <hr>
+            <div class="choice">
+                <button onclick="video_url('iS4VU0bcompa');dm('807483593');">1</button>
+                <button onclick="video_url('i00ea0ajdc4j');dm('542377687');">2</button>
+                <button onclick="video_url('i4HEf0bcrabc');dm('735024728');">3</button>
+                <button onclick="video_url('isWLs0bts5pe');dm('761152576');">4</button>
+                <button onclick="art.url = './1.mp4';dm('761152576');">5</button>
+                <style>
+                    .choice button{
+                        border: none;
+                        background: #528eff;
+                        width: 60px;
+                        height: 30px;
+                        border-radius: 4px;
+                        box-shadow: 0px 0px 6px #9b9b9b;
+                    }
+                    </style>
+            </div> -->
+            <hr>
+            <br>
+            <link rel="stylesheet" href="./base/css/APlayer.min.css">
+            <script src="./base/js/APlayer.min.js"></script>
+        <div id="aplayer"></div>
+        <script>
+            const ap = new APlayer({
+                container: document.getElementById('aplayer'),
+                audio: [{
+                    name: 'So Cute ~',
+                    artist: 'Lopu$',
+                    url: './base/music/So Cute~ - Lopu$.mp3',
+                    cover: './base/img/favicon.png',
+                    lrc: 'lrc.lrc'
+                }]
+            });
+        </script>
+        <div>
+
+            <script type='text/javascript'id='clustrmaps'src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=900&t=n&d=o9YWHIWTDU0-LmCLCGhwJglbMhugBprq1efNvr1D_u0&co=ffffff&cmo=ffffff&cmn=ffffff'></script>
+        </div>
+    </div>
+</body>
+
+</html>
